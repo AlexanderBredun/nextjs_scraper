@@ -1,6 +1,6 @@
 // src/utils/setupBrowser.ts
 
-import { Browser, LaunchOptions } from 'puppeteer';
+import { LaunchOptions } from 'puppeteer';
 import chromium from "@sparticuz/chromium-min";
 import puppeteerCore from "puppeteer-core";
 // Puppeteer extra is a wrapper around puppeteer,
@@ -35,7 +35,7 @@ import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 puppeteer.use(StealthPlugin());
 
 async function setupBrowser(options?: LaunchOptions) {
-    let browser: Browser;
+    let browser: any;
     // Create the browser instance
     if(process.env.NODE_ENV === 'production') {
         browser = await puppeteerCore.launch({
