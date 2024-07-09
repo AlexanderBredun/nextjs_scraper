@@ -2,7 +2,7 @@ FROM node:lts
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
 
 RUN npm install
 
@@ -20,10 +20,10 @@ RUN apt-get update \
 
 WORKDIR /app
 
-COPY --from=BUILDER /app/next.config.js .
-COPY --from=BUILDER /app/package.json .
-COPY --from=BUILDER /app/public ./public
-COPY --from=BUILDER /app/.next ./.next
+# COPY --from=BUILDER /app/next.config.js .
+# COPY --from=BUILDER /app/package.json .
+# COPY --from=BUILDER /app/public ./public
+# COPY --from=BUILDER /app/.next ./.next
 COPY . .
 
 ENV NODE_ENV=PRODUCTION
