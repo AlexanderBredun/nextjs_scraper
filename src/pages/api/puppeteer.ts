@@ -117,6 +117,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                             console.log(`got data`, i, itemsLinks.length);
                             await setTimeout(100);
                         }
+                        await setTimeout(4100);
                         try {
                             await page.waitForSelector(loaderSelector, { timeout: 200 })
                         } catch (error) {
